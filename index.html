@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ensalamento UNIBRASIL</title>
+
+  <!-- Fontes: Poppins para títulos (ar mais institucional) e Inter para texto corrido -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =====================================================================
+       TELA DE LOGIN
+       Aqui a pessoa "entra" escolhendo o papel. Isso é um substituto
+       temporário: no sistema final, o login será por conta Google/Microsoft
+       (seção 6.5 do documento do projeto) e o papel virá do backend.
+       ===================================================================== -->
+  <div id="tela-login">
+    <div class="cartao-login">
+<div class="faixa-logo-login">
+  <img
+    class="logo-unibrasil"
+    src="https://www.unibrasil.com.br/wp-content/uploads/2016/12/marca_unibrasil_amarelo_retina.png"
+    alt="UNIBRASIL - Centro Universitário"
+  />
+</div>
+<h1 style="font-size:1.05rem; margin-top:18px;">Sistema de Ensalamento</h1>
+      <p class="subtitulo">Selecione seu papel para entrar no sistema.</p>
+      <div class="lista-papeis" id="lista-papeis">
+        <!-- Preenchido dinamicamente pelo app.js com um botão por papel -->
+      </div>
+      <p class="aviso-login">
+        Esta tela simula o login enquanto a autenticação real (Google/Microsoft)
+        não está integrada ao backend. Em produção, o papel de cada pessoa será
+        definido pelo cadastro feito pelo administrador, não por uma escolha livre.
+      </p>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       APLICAÇÃO PRINCIPAL (só aparece depois do "login")
+       ===================================================================== -->
+  <div id="app" style="display:none;">
+    <header class="topo">
+<div class="marca">
+  <img
+    class="logo-unibrasil logo-unibrasil--topo"
+    src="https://www.unibrasil.com.br/wp-content/uploads/2016/12/marca_unibrasil_amarelo_retina.png"
+    alt="UNIBRASIL - Centro Universitário"
+  />
+  <span class="separador-marca">|</span>
+  <span>Sistema de Ensalamento</span>
+</div>
+      <div class="info-usuario">
+        <span class="selo-papel" id="selo-papel-atual">—</span>
+        <button id="botao-sair">Sair</button>
+      </div>
+    </header>
+
+    <nav class="abas" id="nav-abas">
+      <!-- Preenchido dinamicamente pelo app.js, de acordo com o papel -->
+    </nav>
+
+    <main id="conteudo-principal">
+      <!-- Cada aba injeta seu próprio conteúdo aqui -->
+    </main>
+
+    <footer class="rodape">
+      Projeto acadêmico — Prática Profissional em Desenvolvimento Web — Engenharia de Software — UNIBRASIL
+    </footer>
+  </div>
+
+  <!-- Ordem importa: data e auth primeiro (não dependem de mais nada),
+       depois calendar (usado por app) e por último app.js, que inicializa tudo. -->
+  <script src="data.js"></script>
+  <script src="auth.js"></script>
+  <script src="calendar.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
